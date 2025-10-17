@@ -2,7 +2,12 @@
 body {
   margin: 0;
   height: 100vh;
-  background: radial-gradient(circle at bottom, #1a0033 0%, #000428 100%);
+  /* Added the SVG logo as the first background layer, centered, and not repeating.
+     The existing radial gradient is the second layer. */
+  background: url('https://upload.wikimedia.org/wikipedia/commons/2/22/Krop_Digital_Media_Entertainment_Corporation_%28KDEC%29_company_icon.svg') no-repeat center center,
+              radial-gradient(circle at bottom, #1a0033 0%, #000428 100%);
+  /* 'contain' ensures the entire logo is visible. 'cover' ensures the gradient covers the viewport. */
+  background-size: 300px auto, cover; 
   overflow: hidden;
   position: relative;
 }
@@ -32,4 +37,6 @@ body::after {
 /* Optional: Add a subtle overlay glow */
 body::before {
   box-shadow: inset 0 0 150px rgba(0,0,0,0.6);
+}
+
 }
